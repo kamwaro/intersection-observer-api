@@ -50,3 +50,12 @@ let observer = new IntersectionObserver(callback, options)
     - If you only want to detect when  visibility passes the 50% mark, you can use a value of 0.5. If you want the callback to run every time the visiblity passes another 25%, you would specify the array [0,0.25,0.5,0.75,1].
     The default is 0, meaning as soon as even one pixel is visible, the callback will be run.
     - A value of 1.0 means that the threshold isn't considered passed until every pixel is visible.
+
+##### Targeting an element to be observed
+
+- Once you have created the observer, you need to give it a target element to watch:
+
+=> let target = document.querySelector('#listItem');
+observer.observe(target)
+
+- Whenever the target meets a threshold specified for the IntersectionObserver, the callback is invoked. The callback receives a list of IntersectionObserverEntry objects and the observer:
